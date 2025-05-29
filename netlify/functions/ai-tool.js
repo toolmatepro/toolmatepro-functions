@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+const fetch = require("node-fetch");
 
 exports.handler = async (event) => {
   const userInput = JSON.parse(event.body).input;
@@ -7,14 +7,16 @@ exports.handler = async (event) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": Bearer ${process.env.OPENAI_API_KEY}
+      "Authorization": "Bearer " + process.env.OPENAI_API_KEY
     },
     body: JSON.stringify({
       model: "gpt-4",
-      messages: [{
-        role: "user",
-        content: The user said: "${userInput}". Recommend 2–3 AI tools that match this task. Keep it short and clear.
-      }],
+      messages: [
+        {
+          role: "user",
+          content: The user said: "${userInput}". Recommend 2–3 AI tools that match this task. Keep it short and clear.
+        }
+      ],
       temperature: 0.7
     })
   });
