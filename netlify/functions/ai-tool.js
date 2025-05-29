@@ -9,14 +9,14 @@ exports.handler = async (event) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "Bearer " + apiKey
+      "Authorization": Bearer ${apiKey}
     },
     body: JSON.stringify({
       model: "gpt-4",
       messages: [
         {
           role: "user",
-          content: The user said: "${input}". Recommend 2–3 AI tools that match this task. Keep it short and clear.
+          content: `The user said: "${input}". Recommend 2–3 AI tools that match this task. Keep it short and clear.`
         }
       ],
       temperature: 0.7
